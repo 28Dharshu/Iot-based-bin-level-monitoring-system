@@ -137,13 +137,13 @@ The buzzer produces a sound alert when the bin is full, providing immediate loca
 
 ## 8. Project File Structure  
 
-smart_bin.ino
-serial_to_twilio.py
-model image.png
-workflow_diagram.png
-serial_output.png
-sms_output.png
-README.md
+- smart_bin.ino
+- serial_to_twilio.py
+- model image.png
+- workflow_diagram.png
+- serial_output.png
+- sms_output.png
+- README.md
 
 
 ---
@@ -166,6 +166,7 @@ Open `smart_bin.ino` in Arduino IDE and upload it to the board.
 
 
 The script listens to serial data and sends SMS when "FULL" is detected.
+"python serial_to_twilio.py"
 
 ---
 
@@ -182,4 +183,4 @@ The script listens to serial data and sends SMS when "FULL" is detected.
 - Hospitals and campuses  
 - Public waste bins  
 - Smart city solutions  
-python serial_to_twilio.py
+
