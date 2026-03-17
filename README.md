@@ -130,7 +130,7 @@ The buzzer produces a sound alert when the bin is full, providing immediate loca
 ### Workflow Diagram  
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/workflow_diagram.png" width="500">
+  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/working_diagram.png" width="500">
 </p>
 
 ---
