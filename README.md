@@ -1,141 +1,133 @@
-🛰️ Smart Bin Level Monitoring System
-Using Arduino, Ultrasonic Sensor, Buzzer & SMS Alerts via Twilio API
+# Smart Bin Level Monitoring System  
+Using Arduino, Ultrasonic Sensor, Buzzer and SMS Alerts via Twilio API
 
+---
 
-📌 Project Overview
+## 1. Project Overview  
+This IoT-based Smart Bin Monitoring System measures the fill level of a waste bin using an ultrasonic sensor.  
 
-This IoT-based Smart Bin Monitoring System measures the fill level of a waste bin using an ultrasonic sensor.
 When the bin becomes full, the system triggers:
 
-Real-time readings on Serial Monitor
+- Real-time readings on Serial Monitor  
+- SMS alert to mobile using Twilio API  
+- Buzzer alert  
 
-SMS alert to mobile using Twilio API
+The system is simple, reliable, and does not require Wi-Fi. It works using Arduino and a computer running a Python script for SMS alerts.
 
-Buzzer alert
+---
 
-The system is simple, reliable, and does not require Wi-Fi—only Arduino and a computer running a Twilio Python script.
+## 2. Features  
+- Real-time ultrasonic distance measurement  
+- Local buzzer alert  
+- SMS notifications via Twilio  
+- Serial Monitor output for monitoring  
+- Lightweight Arduino code (no cloud or machine learning)  
+- Fully offline operation  
 
-🚀 Features
+---
 
-⏱️ Real-time ultrasonic distance measurement
+## 3. Hardware Components  
+- Arduino UNO / Mega  
+- HC-SR04 Ultrasonic Sensor  
+- Buzzer  
+- Jumper wires  
+- USB cable for serial communication  
 
-🔊 Local buzzer alert
+---
 
-📩 SMS notifications via Twilio
+## 4. Hardware Wiring Diagram  
 
-💻 Serial Monitor output
+![Hardware Wiring Diagram](https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/model%20image.png)
 
-🪶 Lightweight Arduino code (no cloud / no ML)
+---
 
-🌐 Works offline
+### Ultrasonic Sensor → Arduino  
 
-🛠️ Hardware Components
+| Ultrasonic Pin | Arduino Pin |
+|----------------|-------------|
+| VCC            | 5V          |
+| GND            | GND         |
+| TRIG           | D9          |
+| ECHO           | D10         |
 
-Arduino UNO / Mega
+---
 
-HC-SR04 Ultrasonic Sensor
+### Buzzer → Arduino  
 
-Buzzer
+| Buzzer Pin | Arduino Pin |
+|------------|-------------|
+| +          | D8          |
+| -          | GND         |
 
-Jumper wires
+---
 
-USB cable (for serial communication)
+## 5. Output Types  
 
-🔧 Hardware Wiring Diagram
-
-
-![Hardware Wiring Diagram](model image.png)
-
-🟦 Ultrasonic Sensor → Arduino
-Ultrasonic Pin	Arduino Pin
-VCC	5V
-GND	GND
-TRIG	D9
-ECHO	D10
-🔊 Buzzer → Arduino
-Buzzer Pin	Arduino Pin
-+	D8
--	GND
-📤 Output Types Included
-✔️ 1. Serial Monitor Output
-
+### 5.1 Serial Monitor Output  
 Displays:
+- Real-time bin level distance  
+- "BIN FULL" message when threshold is reached  
 
-Live bin-level distance
+---
 
-“BIN FULL” message when threshold is crossed
+### 5.2 SMS Alert via Twilio  
+When Arduino sends "FULL" through Serial, the Python script sends:
 
-Figure X.X – Arduino Serial Monitor showing real-time bin level readings and FULL detection message.
+"Alert! Waste bin is FULL. Please clean."
 
-✔️ 2. SMS Alert via Twilio
+---
 
-When Arduino sends "FULL" through Serial, the Python script automatically sends:
+### 5.3 Buzzer Alert  
+The buzzer activates when the bin reaches the defined threshold.
 
-“Alert! Waste bin is FULL. Please clean.”
+---
 
-✔️ 3. Buzzer Alert
+## 6. Project File Structure  
+- smart_bin.ino Arduino code for sensor and buzzer
+- serial_to_twilio.py Python script for SMS alert
+- model image.png Hardware wiring/model image
+- README.md Project documentation
 
-Buzzer turns ON when bin is full.
+  
+---
 
-📁 Project File Structure (Single-Level Files)
-smart_bin.ino             # Arduino code for ultrasonic sensor + buzzer + serial output
-serial_to_twilio.py       # Python script: reads serial, sends SMS via Twilio
-wiring_diagram.png        # Your original hardware wiring/model image
-README.md                 # Project documentation
+## 7. System Workflow  
 
-📡 System Workflow (Serial → Python → Twilio → User)
-Ultrasonic Sensor → Arduino → Serial Output → serial_to_twilio.py → Twilio API → User Phone
+Ultrasonic Sensor → Arduino → Serial Output → Python Script → Twilio API → User Mobile  
 
-📦 Software Requirements
+---
 
-Arduino IDE
+## 8. Software Requirements  
+- Arduino IDE  
+- Python 3  
+- pySerial  
+- Twilio Python SDK  
+- Twilio Account (SID, Auth Token, Phone Number)  
 
-Python 3
+---
 
-pySerial (pip install pyserial)
+## 9. How to Run  
 
-Twilio SDK (pip install twilio)
+### Step 1: Upload Arduino Code  
+Open smart_bin.ino in Arduino IDE and upload it to the board.
 
-Twilio Account (SID, Auth Token, Phone Number)
-
-▶️ How to Run the Project
-1. Upload Arduino Code
-
-Open smart_bin.ino → Upload using Arduino IDE.
-
-2. Run the Python Script
-
-Start the script:
-
+### Step 2: Run Python Script  
 python serial_to_twilio.py
 
+The script listens to serial data and sends SMS when "FULL" is detected.
 
-It continuously listens to USB serial.
+---
 
-When FULL is detected → SMS is sent.
+## 10. Twilio Configuration  
+- Create a Twilio account  
+- Get ACCOUNT SID, AUTH TOKEN, and Twilio phone number  
+- Add them inside serial_to_twilio.py  
 
-📞 Twilio Configuration
+---
 
-Create a Twilio account
-
-Get:
-
-ACCOUNT SID
-
-AUTH TOKEN
-
-TWILIO PHONE NUMBER
-
-Place them inside serial_to_twilio.py
-
-📚 Applications
-
-Smart waste management systems
-
-Industrial bins and containers
-
-Hospitals and campuses
-
-Public waste bins
-
-Smart city automation
+## 11. Applications  
+- Smart waste management systems  
+- Industrial containers  
+- Hospitals and campuses  
+- Public waste bins  
+- Smart city solutions  
