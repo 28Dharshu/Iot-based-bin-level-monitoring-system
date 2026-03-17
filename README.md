@@ -37,7 +37,9 @@ The system is simple, reliable, and does not require Wi-Fi. It works using Ardui
 
 ## 4. Hardware Wiring Diagram  
 
-![Hardware Wiring Diagram](https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/model%20image.jpg)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/model%20image.jpg" width="500">
+</p>
 
 ---
 
@@ -82,22 +84,71 @@ The buzzer activates when the bin reaches the defined threshold.
 
 ---
 
-## 6. Project File Structure  
-- smart_bin.ino Arduino code for sensor and buzzer
-- serial_to_twilio.py Python script for SMS alert
-- model image.png Hardware wiring/model image
-- README.md Project documentation
+## 6. Output Results  
 
-  
----
+### 6.1 Serial Monitor Output  
 
-## 7. System Workflow  
-
-Ultrasonic Sensor → Arduino → Serial Output → Python Script → Twilio API → User Mobile  
+<p align="center">
+  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/serial_output.png" width="400">
+</p>
 
 ---
 
-## 8. Software Requirements  
+### 6.2 SMS Output  
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/sms_output.png" width="400">
+</p>
+
+---
+
+### 6.3 Buzzer Output  
+
+The buzzer produces a sound alert when the bin is full, providing immediate local notification.
+
+---
+
+## 7. Project Workflow  
+
+### Step-by-Step Working Process  
+
+1. The ultrasonic sensor continuously measures the distance between the sensor and the waste level.  
+2. The Arduino processes the distance data and compares it with a predefined threshold value.  
+3. If the measured distance is greater than the threshold, the system continues monitoring.  
+4. If the measured distance is less than or equal to the threshold:  
+   - The bin is considered full  
+   - Arduino sends "FULL" through Serial  
+   - Buzzer is activated  
+5. The Python script reads the Serial data continuously.  
+6. When "FULL" is detected:  
+   - Twilio API is triggered  
+   - SMS is sent to the user  
+7. The user receives the alert and takes action.
+
+---
+
+### Workflow Diagram  
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/workflow_diagram.png" width="500">
+</p>
+
+---
+
+## 8. Project File Structure  
+
+smart_bin.ino
+serial_to_twilio.py
+model image.png
+workflow_diagram.png
+serial_output.png
+sms_output.png
+README.md
+
+
+---
+
+## 9. Software Requirements  
 - Arduino IDE  
 - Python 3  
 - pySerial  
@@ -106,28 +157,29 @@ Ultrasonic Sensor → Arduino → Serial Output → Python Script → Twilio API
 
 ---
 
-## 9. How to Run  
+## 10. How to Run  
 
 ### Step 1: Upload Arduino Code  
-Open smart_bin.ino in Arduino IDE and upload it to the board.
+Open `smart_bin.ino` in Arduino IDE and upload it to the board.
 
 ### Step 2: Run Python Script  
-python serial_to_twilio.py
+
 
 The script listens to serial data and sends SMS when "FULL" is detected.
 
 ---
 
-## 10. Twilio Configuration  
+## 11. Twilio Configuration  
 - Create a Twilio account  
 - Get ACCOUNT SID, AUTH TOKEN, and Twilio phone number  
-- Add them inside serial_to_twilio.py  
+- Add them inside `serial_to_twilio.py`  
 
 ---
 
-## 11. Applications  
+## 12. Applications  
 - Smart waste management systems  
 - Industrial containers  
 - Hospitals and campuses  
 - Public waste bins  
 - Smart city solutions  
+python serial_to_twilio.py
