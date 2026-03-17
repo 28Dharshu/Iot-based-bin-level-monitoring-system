@@ -37,7 +37,7 @@ The system is simple, reliable, and does not require Wi-Fi. It works using Ardui
 
 ## 4. Hardware Wiring Diagram  
 
-![Hardware Wiring Diagram](https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/model%20image.png)
+![Hardware Wiring Diagram](https://raw.githubusercontent.com/28Dharshu/Iot-based-bin-level-monitoring-system/main/model%20image.jpg)
 
 ---
 
